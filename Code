@@ -1,0 +1,38 @@
+public class Solution {
+
+    public static int[] withdraw(int n) {
+        // TO DO
+      int[] theAnswer = new int[3]; 
+      int hundrets= 0; 
+      int fiftys = 0; 
+      int twentys = 0; 
+   while(n> 200 || n%100 ==0 || (n-100) == 50){
+     n-=100; 
+     hundrets++; 
+     if(n == 0 ) break; 
+   }
+    if(n>=100 && (n-100)%20 != 0 || n == 50){
+    n-=50; 
+   fiftys++; 
+}
+      
+      while(n != 0){
+        if(n >100) {
+          n-=100; 
+          hundrets++; 
+        }
+        if(n<100 && n%20 != 0){
+          n-=50; 
+          fiftys++; 
+        }
+        n-=20; 
+        twentys++; 
+      }
+      
+      theAnswer[0] = hundrets; 
+      theAnswer[1] = fiftys; 
+      theAnswer[2] = twentys; 
+      
+        return theAnswer;
+    }
+}
